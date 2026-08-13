@@ -1,0 +1,36 @@
+name: Daily NRB Forex Tracker Workflow
+
+on:
+  schedule:
+    # Runs daily at 04:30 UTC (10:15 AM Nepal Time)
+    - cron: '30 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-tracker-service:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code Base
+        uses: actions/checkout@v4
+
+      - name: Setup Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Execute Tracker Script
+        run: python main.py
+
+      - name: Commit and Push Storage File Updates
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/forex_history.csv
+          git diff-index --quiet HEAD || git commit -m "auto: update daily rate history [skip ci]"
+          git push2026-08-13,GBP,UK Pound Sterling,1,205.76,206.57,205.76,206.57,206.165,2026-08-13T14:53:31.623073+00:00
