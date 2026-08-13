@@ -34,5 +34,5 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add data/forex_history.csv
-          git diff-index --quiet HEAD || git commit -m "auto: update daily rate history [skip ci]"
+          git commit -m "auto: update daily rate history [skip ci]" || echo "No changes to commit"
           git push
