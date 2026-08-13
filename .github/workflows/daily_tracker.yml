@@ -1,8 +1,10 @@
 name: Daily NRB Forex Tracker Workflow
 
+permissions:
+  contents: write
+
 on:
   schedule:
-    # Runs daily at 04:30 UTC (10:15 AM Nepal Time)
     - cron: '30 4 * * *'
   workflow_dispatch:
 

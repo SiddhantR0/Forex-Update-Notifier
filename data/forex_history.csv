@@ -34,3 +34,4 @@ jobs:
           git add data/forex_history.csv
           git diff-index --quiet HEAD || git commit -m "auto: update daily rate history [skip ci]"
           git push2026-08-13,GBP,UK Pound Sterling,1,205.76,206.57,205.76,206.57,206.165,2026-08-13T14:53:31.623073+00:00
+2026-08-13,GBP,UK Pound Sterling,1,205.76,206.57,205.76,206.57,206.165,2026-08-13T15:05:22.632431+00:00
