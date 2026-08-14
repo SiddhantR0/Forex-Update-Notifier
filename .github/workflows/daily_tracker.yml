@@ -8,7 +8,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '30 4 * * *'
+    - cron: '37 4 * * *'  
   workflow_dispatch:
 
 jobs:
@@ -38,7 +38,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add data/forex_history.csv
           if ! git diff-index --quiet HEAD; then
-            git commit -m "auto: update daily rate history [skip ci]"
+            git commit -m "auto: update daily rate history"
             git push
           else
             echo "No changes in forex history. Skipping push."
